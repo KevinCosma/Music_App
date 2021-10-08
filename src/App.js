@@ -3,15 +3,19 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+        musicLibrary: {
+          name: '',
+          artist: '',
+          album: '',
+          releaseDate: 0,
+          genre: ''
+        }
+     }
   }
 
   componentDidMount() {
     this.getAllSongs();
-    this.getSpecificSong();
-    this.addNewSong();
-    this.updateSong();
-    this.deleteSong();
   }
 
   async getAllSongs() {
