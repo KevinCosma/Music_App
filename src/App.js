@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import MusicTable from './components/MusicTable/MusicTable';
+import SearchBar from './components/SearchBar/SearchBar';
+import SongForm from './components/SongForm/SongForm';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-        musicLibrary: {
           name: '',
           artist: '',
           album: '',
           releaseDate: 0,
           genre: ''
-        }
      }
   }
 
@@ -20,8 +22,10 @@ class App extends Component {
 
   async getAllSongs() {
     try{
-      let response = await axios.get();
-      console.log(response.data)
+      let response = await axios.get('http://127.0.0.1:8000/music');
+      this.setState({
+        musicLibrary: response.data
+      });
     }
     catch (ex) {
       console.log('Error in API call!');
@@ -30,7 +34,10 @@ class App extends Component {
 
   async getSpecificSong() {
     try{
-      let response = await axios.get();
+      let response = await axios.get('http://127.0.0.1:8000/music');
+      this.setState({
+        musicLibrary: response.data
+      });
     }
     catch (ex) {
       console.log('Error in API call!');
@@ -39,7 +46,10 @@ class App extends Component {
 
   async addNewSong() {
     try{
-      let response = await axios.get();
+      let response = await axios.get('http://127.0.0.1:8000/music');
+      this.setState({
+        musicLibrary: response.data
+      });
     }
     catch (ex) {
       console.log('Error in API call');
@@ -48,7 +58,10 @@ class App extends Component {
 
   async updateSong() {
     try{
-      let response = await axios.get()
+      let response = await axios.get('http://127.0.0.1:8000/music');
+      this.setState({
+        musicLibrary: response.data
+      });
     }
     catch (ex) {
       console.log('Error in API call!');
@@ -57,7 +70,10 @@ class App extends Component {
 
   async deleteSong() {
     try{
-      let response = await axios.get()
+      let response = await axios.get('http://127.0.0.1:8000/music');
+      this.setState({
+        musicLibrary: response.data
+      });
     }
     catch (ex) {
       console.log('Error in API call!');
@@ -66,7 +82,12 @@ class App extends Component {
 
   render() { 
     return ( 
-      <h1>Hello World</h1>
+      <div>
+        <MusicTable songLibrary={this.state.musicLibrary} />
+        <SearchBar  />
+        <SongForm update={this.state.musicLibrary}/>
+        <button onClick={this.getAllSongs}></button>
+      </div>
      );
   }
 }

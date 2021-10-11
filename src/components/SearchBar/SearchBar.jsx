@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class  extends Component {
+class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -14,7 +14,7 @@ class  extends Component {
         <input
             type="text"
             id="header-search"
-            placeholder="Search blog posts"
+            placeholder="Search music library"
             name="s" 
         />
         <button type="submit">Search</button>
@@ -22,4 +22,4 @@ class  extends Component {
     }
 }
  
-export default ;
+export default SearchBar;
