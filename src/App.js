@@ -8,11 +8,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-          name: '',
-          artist: '',
-          album: '',
-          releaseDate: 0,
-          genre: ''
+      musicLibrary: [ 
+       { 
+        name: "It's My Life",
+        artist: "Bon Jovi",
+        album: "Crush",
+        genre: "Rock"
+        },
+        {
+          name: "Bohemian Rhapsody",
+          artist: "Queen",
+          album: "A Night at the Opera",
+          genre: "Rock"
+        },
+        {
+          name: "Sweet Child O'Mine",
+          artist: "Guns N Roses",
+          album: "Appetite for Destruction",
+          genre: "Rock"
+        }
+        ]  
      }
   }
 
